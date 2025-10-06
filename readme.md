@@ -6,7 +6,7 @@ This repository contains a lightweight demo that shows how to embed a Nostr chat
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/nostr-web-chat-plugin.git
+   git clone https://github.com/btcforplebs/nostr-web-chat-plugin.git
    ```
 
 2. **Start the demo server** (works on macOS, Linux, Windows – Node 18+ is required)
@@ -15,20 +15,24 @@ This repository contains a lightweight demo that shows how to embed a Nostr chat
    npm install
    npm run dev
    ```
-   The server will start at [http://localhost:5173](http://localhost:5173).
+   The server will start the demo at [http://localhost:4000](http://localhost:4000/demo).
 
-3. **Copy the widget snippet** – add this to the place in your HTML where you want the chat box to appear:
+   ## Website Embed (Node.js)
+
+1. **copy chat.JS to nodeJS project** 
+
+      /src/chat.js move to website /src folder
+
+2. **Copy the widget snippet** – add this to the place in your HTML where you want the chat box to appear:
 
    ```html
-   <div id="nostr-chat"></div>
-   <script type="module" src="https://cdn.jsdelivr.net/npm/@nostrweb/chat-plugin@1.0.0/lib/index.js"></script>
-   <script>
-     const chat = new NostrChat({ target: '#nostr-chat', relay: 'wss://nostr.oxal.org' });
-   </script>
+   <!-- Add the chat widget node-->
+        <script type="module" src="../src/chat.js"></script>
+
+   <!-- Add chat widget container -->
+         <div id="chat-widget-root"></div>
    ```
 
-   - `#nostr-chat` is the DOM element that will contain the widget.
-   - Replace `relay` with your preferred Nostr relay if you wish.
 
 4. **Open your page** in any browser.  The chat widget should load automatically and allow users to send/receive messages.
 
