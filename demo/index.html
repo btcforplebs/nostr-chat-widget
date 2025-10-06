@@ -94,29 +94,6 @@
             </div>
         </section>
 
-        <!-- Installation -->
-        <section class="max-w-4xl mx-auto mb-20">
-            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Quick Installation</h2>
-            <div class="bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto">
-                <pre class="text-sm"><code>&lt;!-- Add Tailwind CSS --&gt;
-&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
-
-&lt;!-- Add import map for nostr-tools --&gt;
-&lt;script type="importmap"&gt;
-{
-  "imports": {
-    "nostr-tools": "https://esm.sh/nostr-tools@1.17.0"
-  }
-}
-&lt;/script&gt;
-
-&lt;!-- Add the chat widget --&gt;
-&lt;script type="module" src="path/to/chat.js"&gt;&lt;/script&gt;
-
-&lt;!-- Add chat widget container --&gt;
-&lt;div id="chat-widget-root"&gt;&lt;/div&gt;</code></pre>
-            </div>
-        </section>
 
         <!-- GitHub Link -->
         <section class="text-center">
@@ -140,7 +117,10 @@
     </footer>
 
     <!-- Chat Widget -->
-    <script type="module" src="../src/chat.js"></script>
+        <!-- Add the chat widget -->
+        <script type="module" src="../src/chat.js"></script>
+
+        <!-- Add chat widget container -->
     <div id="chat-widget-root"></div>
 </body>
 </html>
