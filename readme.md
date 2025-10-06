@@ -9,7 +9,7 @@ This repository contains a lightweight demo that shows how to embed a Nostr chat
    git clone https://github.com/btcforplebs/nostr-web-chat-plugin.git
    ```
 
-2. **Start the demo server** (works on macOS, Linux, Windows – Node 18+ is required)
+2. **Start the demo server (NPM)** (works on macOS, Linux, Windows – Node 18+ is required)
    ```bash
    cd nostr-web-chat-plugin
    npm install
@@ -19,7 +19,16 @@ This repository contains a lightweight demo that shows how to embed a Nostr chat
 
    ## Website Embed (Node.js)
 
-1. **copy chat.JS to nodeJS project** 
+
+2. **Start the demo server (Python)** (works on macOS, Linux, Windows – Node 18+ is required)
+   ```bash
+    python3 -m http.server 8000
+    ```
+
+   The server will start the demo at [http://localhost:4000](http://localhost:4000/demo).
+   
+
+1. **copy chat.JS to your web project** 
 
       /src/chat.js move to website /src folder
 
@@ -32,15 +41,21 @@ This repository contains a lightweight demo that shows how to embed a Nostr chat
    <!-- Add chat widget container -->
          <div id="chat-widget-root"></div>
    ```
+2. **Update the CSteam npub** – this will be the npub where you will receive messages
+   ```
+   sudo nano /chat.js
+   ```
+   Put your Npub (hex format)
+   ```
+   csPubkey: 'PUBKEY_TO_RECEICE_MESSAGES' // Replace with actual pubkey
+   ```
 
-
-4. **Open your page** in any browser.  The chat widget should load automatically and allow users to send/receive messages.
+4. **Open your page** in any browser.  The chat widget should load automatically and allow users to send/receive messages via nostr with ephemrial keys stored in the users cashe.
 
 ## How It Works
 
 - The demo runs a lightweight Vite development server that bundles the widget.
-- The widget itself is distributed via CDN in the example snippet.
-- No additional build steps are required for using the widget – just drop the HTML snippet in.
+- No additional build steps are required for using the widget – just drop the JS and HTML snippet - update the CSteam npub (hex format) and start receiving nostr messages through your website.
 
 ## Common Issues
 
