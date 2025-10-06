@@ -1,0 +1,40 @@
+{
+  "name": "nostr-chat-widget",
+  "version": "1.0.0",
+  "description": "A lightweight, privacy-focused chat widget powered by the Nostr protocol with end-to-end encryption",
+  "main": "src/chat.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx live-server demo --port=8080",
+    "test": "echo \"No tests specified yet\" && exit 0"
+  },
+  "keywords": [
+    "nostr",
+    "chat",
+    "widget",
+    "e2ee",
+    "encrypted",
+    "decentralized",
+    "p2p",
+    "privacy"
+  ],
+  "author": "Loge Media",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/btcforplebs/nostr-chat-widget.git"
+  },
+  "bugs": {
+    "url": "https://github.com/btcforplebs/nostr-chat-widget/issues"
+  },
+  "homepage": "https://github.com/btcforplebs/nostr-chat-widget#readme",
+  "dependencies": {
+    "nostr-tools": "^1.17.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

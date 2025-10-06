@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostr Chat Widget Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "nostr-tools": "https://esm.sh/nostr-tools@1.17.0"
+      }
+    }
+    </script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .feature-card {
+            transition: transform 0.2s;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4">Nostr Chat Widget</h1>
+            <p class="text-xl opacity-90">Privacy-first customer support powered by Nostr</p>
+            <div class="mt-8 flex gap-4 justify-center">
+                <span class="bg-white/20 px-4 py-2 rounded-full text-sm">🔐 E2E Encrypted</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full text-sm">🌐 Decentralized</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full text-sm">🚫 No Backend</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-16">
+        <!-- Demo Section -->
+        <section class="max-w-4xl mx-auto mb-20">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-8 rounded-2xl shadow-xl text-center">
+                <h2 class="text-3xl font-bold mb-4">Try it now!</h2>
+                <p class="text-lg mb-6">Click the orange chat button in the bottom-right corner to start a conversation</p>
+                <div class="inline-flex items-center gap-2 bg-white/20 px-6 py-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Look for the chat widget →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="max-w-6xl mx-auto mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Key Features</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">🔐</div>
+                    <h3 class="text-xl font-bold mb-2">End-to-End Encrypted</h3>
+                    <p class="text-gray-600">All messages are encrypted using NIP-04 before transmission. Your conversations stay private.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-xl font-bold mb-2">Decentralized</h3>
+                    <p class="text-gray-600">Powered by Nostr relays. No single point of failure or control.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">🚫</div>
+                    <h3 class="text-xl font-bold mb-2">No Backend Required</h3>
+                    <p class="text-gray-600">Entirely client-side. Just drop in the code and you're ready to go.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">📱</div>
+                    <h3 class="text-xl font-bold mb-2">Mobile Responsive</h3>
+                    <p class="text-gray-600">Works seamlessly on desktop, tablet, and mobile devices.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold mb-2">Lightweight</h3>
+                    <p class="text-gray-600">Minimal dependencies. Fast loading and smooth performance.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg">
+                    <div class="text-4xl mb-4">🔑</div>
+                    <h3 class="text-xl font-bold mb-2">Ephemeral Sessions</h3>
+                    <p class="text-gray-600">Auto-generated session keys with 24-hour expiry for enhanced privacy.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section class="max-w-4xl mx-auto mb-20">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Quick Installation</h2>
+            <div class="bg-gray-900 text-gray-100 p-6 rounded-xl overflow-x-auto">
+                <pre class="text-sm"><code>&lt;!-- Add Tailwind CSS --&gt;
+&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+
+&lt;!-- Add import map for nostr-tools --&gt;
+&lt;script type="importmap"&gt;
+{
+  "imports": {
+    "nostr-tools": "https://esm.sh/nostr-tools@1.17.0"
+  }
+}
+&lt;/script&gt;
+
+&lt;!-- Add the chat widget --&gt;
+&lt;script type="module" src="path/to/chat.js"&gt;&lt;/script&gt;
+
+&lt;!-- Add chat widget container --&gt;
+&lt;div id="chat-widget-root"&gt;&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- GitHub Link -->
+        <section class="text-center">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Ready to get started?</h2>
+            <a href="https://github.com/yourusername/nostr-chat-widget" 
+               class="inline-flex items-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-xl font-semibold hover:bg-gray-800 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                View on GitHub
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-20">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">Built with ⚡ by Loge Media</p>
+            <p class="text-sm text-gray-500 mt-2">Powered by the Nostr protocol</p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <script type="module" src="../src/chat.js"></script>
+    <div id="chat-widget-root"></div>
+</body>
+</html>
