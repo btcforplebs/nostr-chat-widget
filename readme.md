@@ -1,123 +1,55 @@
-# Nostr Chat Widget
+# Nostr Web Chat Plugin Demo
 
-A lightweight, client‑only Nostr chat widget that can be dropped into any website. The widget is built using **nostr-tools** and **Tailwind CSS** for styling.
+This repository contains a lightweight demo that shows how to embed a Nostr chat widget into your own website.  The goal is to let visitors start a conversation with no setup – simply paste the snippet below into your site.
 
----
+## Quick‑Start
 
-## 🚀 Quick Start
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/nostr-web-chat-plugin.git
+   ```
 
+2. **Start the demo server** (works on macOS, Linux, Windows – Node 18+ is required)
+   ```bash
+   cd nostr-web-chat-plugin
+   npm install
+   npm run dev
+   ```
+   The server will start at [http://localhost:5173](http://localhost:5173).
 
+3. **Copy the widget snippet** – add this to the place in your HTML where you want the chat box to appear:
 
-Once the demo page is open you can immediately play with the widget:
-1. **Add the public key** – see *Configuring the Public Key* section below.
-2. Hit the orange button in the bottom‑right corner and start chatting!
+   ```html
+   <div id="nostr-chat"></div>
+   <script type="module" src="https://cdn.jsdelivr.net/npm/@nostrweb/chat-plugin@1.0.0/lib/index.js"></script>
+   <script>
+     const chat = new NostrChat({ target: '#nostr-chat', relay: 'wss://nostr.oxal.org' });
+   </script>
+   ```
 
----
+   - `#nostr-chat` is the DOM element that will contain the widget.
+   - Replace `relay` with your preferred Nostr relay if you wish.
 
-## 🔑 Configuring the Public Key (npub) on the Demo Page
+4. **Open your page** in any browser.  The chat widget should load automatically and allow users to send/receive messages.
 
-We added an easy‑to‑use input bar at the top‑center of the demo page that lets you quickly test the widget with any Nostr npub. The JS code reads the key from **localStorage** under the key . When you set a new npub it temporarily overwrites the hard‑coded  value in . This makes testing live chats a breeze without touching the source.
+## How It Works
 
-### How It Works
-1. **Add the input bar** – The demo page already contains a small form (see ).
-2. **Enter an npub** – Click *Set Npub* to store the value in localStorage.
-3. **Reload the page** – The widget automatically loads the new key from localStorage and uses it for all DM interactions.
-4. **Clear** – Delete  from localStorage or set it back to the original value to revert.
+- The demo runs a lightweight Vite development server that bundles the widget.
+- The widget itself is distributed via CDN in the example snippet.
+- No additional build steps are required for using the widget – just drop the HTML snippet in.
 
-Below is a quick snippet of the relevant part of  for reference:
+## Common Issues
 
+| Issue | Fix |
+|---|---|
+| Browser blocks mixed‑content (HTTP vs HTTPS) | Serve your page over HTTPS or host the widget on HTTP only while in dev. |
+| Relay is unreachable | Ensure the relay URL is correct and that it supports WebSocket connections. |
+| Styling conflict | The widget uses scoped CSS; if you override global styles that affect form elements, the widget may break. |
 
+## Contributing
 
-The source file  then checks localStorage on initialization:
+Feel free to open issues or pull requests.  If you add a new relay or feature, remember to update the example snippet accordingly.
 
+## License
 
-
-You can keep the original placeholder in  for production releases. For development or demo purposes, this pattern is the recommended way.
-
----
-
-## 📖 Getting Your Public Key
-
-1. Create a Nostr identity using any Nostr client.
-2. Export your public key in hex format (not npub).
-3. Add it to the  field in .
-
-**Tip:** You can convert npub to hex at [nostr.band/tools](https://nostr.band/tools).
-
----
-
-## 🎨 Customization
-
-### Styling
-
-The widget uses Tailwind CSS utility classes. To customize colors, search for these classes in :
-- Primary color:  (orange gradient)
-- Change it to your brand colors.
-
-### Mobile Behavior
-
-On mobile devices, the chat expands to fullscreen automatically. Customize this in the CSS:
-
-
----
-
-## 🔒 How It Works
-
-1. **Session Creation**: Generates an in‑memory keypair stored locally for the session.
-2. **Message Encryption**: All messages encrypted using NIP‑04.
-3. **Relay Publishing**: Sent to multiple Nostr relays.
-4. **Real‑time Updates**: Subscribes to replies from your public key.
-5. **Local Storage**: Messages persist for 24 hours.
-
----
-
-## 📦 Dependencies
-- **[nostr-tools](https://github.com/nbd-wtf/nostr-tools)** – Nostr protocol implementation
-- **[Tailwind CSS](https://tailwindcss.com/)** – Styling framework
-
----
-
-## 🛠️ Development
-
-### Local Testing
-
-
-
-1. Open  in a browser.
-2. Use the npub input bar for testing.
-
----
-
-## 📱 Receiving Messages
-
-To receive and respond to chat messages, use any Nostr client:
-- **Desktop**: [Nostr.band](https://nostr.band), [Snort](https://snort.social)
-- **Mobile**: [Damus](https://damus.io), [Amethyst](https://github.com/vitorpamplona/amethyst)
-
----
-
-## 🔐 Security Considerations
-- **Ephemeral Keys**: New keypair per session (24‑hr expiration).
-- **No User Data**: No cookies or tracking.
-- **E2E Encryption**: Messages encrypted before sending.
-- **Relay Privacy**: Distributed across multiple relays.
-
----
-
-## 📄 License
-MIT License – see [LICENSE](LICENSE).
-
----
-
-## 🤝 Contributing
-Pull requests welcome! Please open an issue first if you plan a large change.
-
----
-
-## 💬 Support
-- **Issues**: [GitHub Issues](https://github.com/yourusername/nostr-web-chat-plugin/issues)
-- **Nostr DM**: Any DM to contact the maintainer.
-
----
-
-**Made with ⚡ by Loge Media**
+MIT LICENSE.  See [LICENSE](LICENSE) for details.
